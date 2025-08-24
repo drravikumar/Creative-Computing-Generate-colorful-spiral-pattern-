@@ -1,0 +1,21 @@
+import turtle
+import colorsys
+
+# Setup
+turtle.bgcolor("black")
+turtle.speed(0)
+turtle.hideturtle()
+turtle.colormode(255)
+
+# Colors
+num_colors = 36
+colors = [colorsys.hsv_to_rgb(i/num_colors, 1, 1) for i in range(num_colors)]
+colors = [(int(r*255), int(g*255), int(b*255)) for r, g, b in colors]
+
+# Draw Pattern
+for i in range(360):
+    turtle.color(colors[i % num_colors])
+    turtle.forward(i * 2)
+    turtle.right(59)
+
+turtle.done()
